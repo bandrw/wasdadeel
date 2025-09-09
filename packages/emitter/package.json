@@ -1,0 +1,40 @@
+{
+    "name": "@wasdadeel/emitter",
+    "description": "Tiny event emitter used by wasdadeel libs",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bandrw/wasdadeel.git"
+    },
+    "author": "Andrei Balashov <bandrwx@gmail.com>",
+    "version": "0.0.3",
+    "type": "module",
+    "main": "./dist/index.cjs",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/esm/index.d.ts",
+            "import": "./dist/esm/index.js",
+            "require": "./dist/cjs/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md",
+        "LICENSE"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build:esm": "tsc -p tsconfig.json",
+        "build:cjs": "tsc -p tsconfig.cjs.json",
+        "build": "rm -rf dist && yarn build:esm && yarn build:cjs",
+        "prepublishOnly": "npm run build"
+    },
+    "devDependencies": {
+        "typescript": "^5"
+    },
+    "publishConfig": {
+        "access": "public"
+    },
+    "license": "MIT"
+}

@@ -1,0 +1,16 @@
+{
+    "name": "wasdadeel",
+    "workspaces": [
+        "packages/*"
+    ],
+    "private": true,
+    "engines": {
+        "node": ">=18.0.0",
+        "yarn": ">=1.22.19"
+    },
+    "version": "0.0.1",
+    "repository": "https://github.com/bandrw/wasdadeel",
+    "author": "Andrei Balashov <bandrwx@gmail.com>",
+    "packageManager": "yarn@1.22.19",
+    "license": "MIT"
+}

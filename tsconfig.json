@@ -1,0 +1,15 @@
+{
+    "compilerOptions": {
+        "outDir": "dist/esm",
+        "declaration": true,
+        "emitDeclarationOnly": false,
+        "module": "ESNext",
+        "target": "ES2019",
+        "moduleResolution": "Bundler",
+        "isolatedModules": true,
+        "skipLibCheck": true,
+        "declarationMap": true,
+        "strict": true
+    },
+    "include": ["src/**/*.ts"]
+}
