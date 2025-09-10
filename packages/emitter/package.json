@@ -3,10 +3,11 @@
     "description": "Tiny event emitter used by wasdadeel libs",
     "repository": {
         "type": "git",
-        "url": "git+https://github.com/bandrw/wasdadeel.git"
+        "url": "git+https://github.com/bandrw/wasdadeel.git",
+        "directory": "packages/emitter"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
-    "version": "0.0.3",
+    "version": "1.0.0",
     "type": "module",
     "main": "./dist/index.cjs",
     "module": "./dist/index.js",
@@ -20,8 +21,7 @@
     },
     "files": [
         "dist",
-        "README.md",
-        "LICENSE"
+        "README.md"
     ],
     "sideEffects": false,
     "scripts": {
