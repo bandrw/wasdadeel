@@ -1,13 +1,40 @@
 {
     "name": "@wasdadeel/state",
-    "version": "1.0.0",
-    "main": "src/index.ts",
-    "module": "src/index.ts",
+    "description": "Tiny state creators - always get fresh values, subscribe to updates",
+    "repository": {
+        "type": "git",
+        "url": "git+https://github.com/bandrw/wasdadeel.git",
+        "directory": "packages/state"
+    },
+    "author": "Andrei Balashov <bandrwx@gmail.com>",
+    "version": "1.0.1",
+    "type": "module",
+    "module": "./dist/index.js",
+    "types": "./dist/index.d.ts",
+    "exports": {
+        ".": {
+            "types": "./dist/esm/index.d.ts",
+            "import": "./dist/esm/index.js"
+        }
+    },
+    "files": [
+        "dist",
+        "README.md"
+    ],
+    "sideEffects": false,
+    "scripts": {
+        "build:esm": "tsc -p tsconfig.json",
+        "build": "rm -rf dist && yarn build:esm",
+        "prepublishOnly": "npm run build"
+    },
     "dependencies": {
-        "@wasdadeel/emitter": "*"
+        "@wasdadeel/emitter": "^1.0.0"
     },
     "devDependencies": {
         "typescript": "^5"
+    },
+    "publishConfig": {
+        "access": "public"
     },
     "license": "MIT"
 }
