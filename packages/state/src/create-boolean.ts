@@ -14,6 +14,7 @@ export interface CreatedBoolean {
     setState: (payload: Parameters<CreatedState<boolean>['setState']>[0]) => void;
     toggle: () => void;
     on: EventEmitter<EventMap>['on'];
+    emitter: EventEmitter<EventMap>;
 }
 
 export type CreatedBooleanReader = Pick<CreatedBoolean, 'getState' | 'on'>;
@@ -47,5 +48,6 @@ export const createBoolean = (initialState: boolean | (() => boolean)): CreatedB
             state.setState(newState);
         },
         on: emitter.on,
+        emitter,
     };
 };

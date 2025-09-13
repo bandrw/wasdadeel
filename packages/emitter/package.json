@@ -1,13 +1,29 @@
 {
     "name": "@wasdadeel/emitter",
-    "description": "Tiny event emitter used by wasdadeel libs",
+    "description": "A tiny, strongly-typed event emitter for TypeScript projects",
+    "keywords": [
+        "typescript",
+        "event-emitter",
+        "events",
+        "typed",
+        "strongly-typed",
+        "subscription",
+        "listener",
+        "emit",
+        "on",
+        "once",
+        "off",
+        "zero-deps",
+        "minimal",
+        "tiny"
+    ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bandrw/wasdadeel.git",
         "directory": "packages/emitter"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
-    "version": "1.0.2",
+    "version": "1.0.5",
     "type": "module",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -25,6 +41,10 @@
     "scripts": {
         "build:esm": "tsc -p tsconfig.json",
         "build": "rm -rf dist && yarn build:esm",
+        "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
+        "lint:check": "exit 0",
+        "lint:fix": "exit 1",
+        "release": "yarn publish --new-version $(node -p \"require('./package.json').version\") --no-git-tag-version --no-commit-hooks",
         "prepublishOnly": "npm run build"
     },
     "devDependencies": {

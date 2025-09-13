@@ -1,25 +1,30 @@
 {
-    "name": "@wasdadeel/state",
-    "description": "Minimal external-state primitives with typed events",
+    "name": "@wasdadeel/common",
+    "description": "Essential utilities for TypeScript projects",
     "keywords": [
         "typescript",
-        "state",
-        "state-management",
-        "reactive",
-        "events",
-        "subscription",
-        "external-state",
-        "createState",
-        "createBoolean",
-        "createCounter",
-        "typed-events",
-        "zero-deps",
-        "minimal"
+        "utilities",
+        "common",
+        "tools",
+        "text",
+        "html",
+        "promise",
+        "clipboard",
+        "environment",
+        "cookies",
+        "jwt",
+        "render",
+        "tree",
+        "validation",
+        "timing",
+        "browser",
+        "node",
+        "zero-deps"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bandrw/wasdadeel.git",
-        "directory": "packages/state"
+        "directory": "packages/common"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
     "version": "1.0.5",
@@ -46,10 +51,8 @@
         "release": "yarn publish --new-version $(node -p \"require('./package.json').version\") --no-git-tag-version --no-commit-hooks",
         "prepublishOnly": "npm run build"
     },
-    "dependencies": {
-        "@wasdadeel/emitter": "^1"
-    },
     "devDependencies": {
+        "@types/node": "^24.3.3",
         "typescript": "^5"
     },
     "publishConfig": {

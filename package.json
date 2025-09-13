@@ -1,5 +1,6 @@
 {
     "name": "wasdadeel",
+    "version": "1.0.5",
     "workspaces": [
         "packages/*"
     ],
@@ -8,7 +9,13 @@
         "node": ">=18.0.0",
         "yarn": ">=1.22.19"
     },
-    "version": "0.0.1",
+    "scripts": {
+        "release": "yarn workspaces run release",
+        "typecheck": "yarn workspaces run typecheck",
+        "lint:check": "yarn workspaces run lint:check",
+        "lint:fix": "yarn workspaces run lint:fix",
+        "sync-versions": "node sync-versions.js"
+    },
     "repository": "https://github.com/bandrw/wasdadeel",
     "author": "Andrei Balashov <bandrwx@gmail.com>",
     "packageManager": "yarn@1.22.19",

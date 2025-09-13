@@ -18,6 +18,7 @@ export interface CreatedState<Payload> {
         },
     ) => void;
     on: EventEmitter<EventMap<Payload>>['on'];
+    emitter: EventEmitter<EventMap<Payload>>;
 }
 
 export type CreatedStateReader<T> = Omit<CreatedState<T>, 'setState'>;
@@ -64,5 +65,6 @@ export const createState = <T extends NonFunction>(initialState: T | (() => T)):
         getState,
         setState,
         on: emitter.on,
+        emitter,
     };
 };
