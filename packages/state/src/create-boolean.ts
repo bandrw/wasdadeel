@@ -17,7 +17,7 @@ export interface CreatedBoolean {
     emitter: EventEmitter<EventMap>;
 }
 
-export type CreatedBooleanReader = Pick<CreatedBoolean, 'getState' | 'on'>;
+export type CreatedBooleanReader = Omit<CreatedBoolean, 'setTrue' | 'setFalse' | 'setState' | 'toggle'>;
 
 export const createBoolean = (initialState: boolean | (() => boolean)): CreatedBoolean => {
     const state = createState<boolean>(initialState);

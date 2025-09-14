@@ -18,7 +18,7 @@ export interface CreatedCounter {
     emitter: EventEmitter<EventMap>;
 }
 
-export type CreatedCounterReader = Pick<CreatedCounter, 'getState' | 'on' | 'once'>;
+export type CreatedCounterReader = Omit<CreatedCounter, 'reset' | 'increment' | 'decrement'>;
 
 export const createCounter = (initial?: number): CreatedCounter => {
     const INITIAL_VALUE = initial ?? 0;

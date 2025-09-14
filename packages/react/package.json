@@ -1,25 +1,29 @@
 {
-    "name": "@wasdadeel/state",
-    "description": "Minimal external-state primitives with typed events",
+    "name": "@wasdadeel/react",
+    "description": "React hooks and utilities for external state management",
     "keywords": [
+        "react",
+        "hooks",
+        "state-management",
+        "external-state",
+        "useSyncExternalStore",
+        "react-18",
+        "react-19",
         "typescript",
         "state",
-        "state-management",
-        "reactive",
-        "events",
-        "subscription",
-        "external-state",
-        "createState",
-        "createBoolean",
-        "createCounter",
-        "typed-events",
-        "zero-deps",
-        "minimal"
+        "boolean",
+        "counter",
+        "context",
+        "emitter",
+        "teardown",
+        "render",
+        "key-listeners",
+        "zero-deps"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bandrw/wasdadeel.git",
-        "directory": "packages/state"
+        "directory": "packages/react"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
     "version": "1.0.14",
@@ -38,6 +42,7 @@
     ],
     "sideEffects": false,
     "scripts": {
+        "prebuild": "yarn workspace @wasdadeel/state build",
         "build:esm": "tsc -p tsconfig.json",
         "build": "rm -rf dist && yarn build:esm",
         "typecheck": "tsc --project ./tsconfig.json --noEmit --skipLibCheck",
@@ -46,10 +51,18 @@
         "release": "yarn publish --new-version $(node -p \"require('./package.json').version\") --no-git-tag-version --no-commit-hooks",
         "prepublishOnly": "npm run build"
     },
+    "peerDependencies": {
+        "react": ">=18"
+    },
     "dependencies": {
-        "@wasdadeel/emitter": "1.0.14"
+        "@wasdadeel/common": "1.0.14",
+        "@wasdadeel/state": "1.0.14",
+        "use-sync-external-store": "^1"
     },
     "devDependencies": {
+        "@types/node": "^24",
+        "@types/react": "^19",
+        "@types/use-sync-external-store": "^1.5.0",
         "typescript": "^5"
     },
     "publishConfig": {
