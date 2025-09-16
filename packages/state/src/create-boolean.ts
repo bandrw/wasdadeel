@@ -5,6 +5,9 @@ type EventMap = {
     setTrue: {prevState: boolean; newState: boolean};
     setFalse: {prevState: boolean; newState: boolean};
     change: {prevState: boolean; newState: boolean};
+    setState: {prevState: boolean; newState: boolean};
+    'change.toTrue': {prevState: boolean; newState: boolean};
+    'change.toFalse': {prevState: boolean; newState: boolean};
 };
 
 export interface CreatedBoolean {
@@ -23,12 +26,18 @@ export const createBoolean = (initialState: boolean | (() => boolean)): CreatedB
     const state = createState<boolean>(initialState);
     const emitter = createEventEmitter<EventMap>();
 
-    state.on('change', ({prevState, newState}) => emitter.emit('change', {prevState, newState}));
+    state.on('change', ({prevState, newState}) => {
+        emitter.emit('change', {prevState, newState});
+        emitter.emit(newState ? 'change.toTrue' : 'change.toFalse', {prevState, newState});
+    });
 
     return {
         getState: state.getState,
         setState: (payload) => {
+            const prevState = state.getState();
             state.setState(payload);
+            const newState = state.getState();
+            emitter.emit('setState', {prevState, newState})
         },
         setTrue: () => {
             const prevState = state.getState();

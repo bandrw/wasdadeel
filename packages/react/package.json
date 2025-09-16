@@ -26,7 +26,7 @@
         "directory": "packages/react"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
-    "version": "1.0.16",
+    "version": "1.0.17",
     "type": "module",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -55,8 +55,8 @@
         "react": ">=18"
     },
     "dependencies": {
-        "@wasdadeel/common": "1.0.16",
-        "@wasdadeel/state": "1.0.16",
+        "@wasdadeel/common": "1.0.17",
+        "@wasdadeel/state": "1.0.17",
         "use-sync-external-store": "^1"
     },
     "devDependencies": {
