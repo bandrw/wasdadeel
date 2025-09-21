@@ -1,25 +1,27 @@
 {
-    "name": "@wasdadeel/state",
-    "description": "Minimal external-state primitives with typed events",
+    "name": "@wasdadeel/fetcher",
+    "description": "Tiny fetch wrapper with middleware, baseUrl, hooks (beforeFetch/afterFetch), redirect helper, and easy get/post/put/patch/delete helpers",
     "keywords": [
+        "fetch",
+        "http",
         "typescript",
-        "state",
-        "state-management",
-        "reactive",
-        "events",
-        "subscription",
-        "external-state",
-        "createState",
-        "createBoolean",
-        "createCounter",
-        "typed-events",
-        "zero-deps",
-        "minimal"
+        "middleware",
+        "abortcontroller",
+        "timeout",
+        "baseUrl",
+        "client",
+        "request",
+        "response",
+        "node18",
+        "browser",
+        "isomorphic",
+        "utilities",
+        "helpers"
     ],
     "repository": {
         "type": "git",
         "url": "git+https://github.com/bandrw/wasdadeel.git",
-        "directory": "packages/state"
+        "directory": "packages/fetcher"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
     "version": "1.0.22",
@@ -45,9 +47,6 @@
         "lint:fix": "exit 1",
         "release": "yarn publish --new-version $(node -p \"require('./package.json').version\") --no-git-tag-version --no-commit-hooks",
         "prepublishOnly": "npm run build"
-    },
-    "dependencies": {
-        "@wasdadeel/emitter": "1.0.22"
     },
     "devDependencies": {
         "typescript": "^5"

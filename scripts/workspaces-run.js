@@ -2,6 +2,7 @@ const { execSync } = require("child_process");
 
 const order = [
     "@wasdadeel/common",
+    "@wasdadeel/fetcher",
     "@wasdadeel/emitter",
     "@wasdadeel/state",
     "@wasdadeel/react",
