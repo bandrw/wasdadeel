@@ -1,3 +1,4 @@
+"use client";
 import React from 'react';
 
 export interface CreatedContext<T, Arg = never> {

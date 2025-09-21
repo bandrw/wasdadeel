@@ -1,3 +1,4 @@
+"use client";
 import { createTeardown } from "@wasdadeel/common";
 import { useFactory, useOnUnmount } from "./hooks";
 

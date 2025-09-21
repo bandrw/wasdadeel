@@ -1,3 +1,4 @@
+"use client";
 import { createEventEmitter, EventEmitter, EventMap } from "@wasdadeel/emitter";
 import { useSyncEffect } from "./hooks";
 
