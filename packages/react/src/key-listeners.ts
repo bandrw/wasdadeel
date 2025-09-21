@@ -1,4 +1,3 @@
-"use client";
 import { useEffect } from "react";
 import { useRefCopy } from "./hooks";
 import { CAN_USE_DOM } from "@wasdadeel/common";

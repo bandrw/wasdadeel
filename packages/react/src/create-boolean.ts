@@ -1,4 +1,3 @@
-"use client";
 import { useSyncExternalStore } from 'use-sync-external-store/shim';
 import { useFactory, useRefOutput } from './hooks';
 import { NonFunction } from '@wasdadeel/common';

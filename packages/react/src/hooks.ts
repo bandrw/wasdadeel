@@ -1,4 +1,3 @@
-"use client";
 import { CAN_USE_DOM, NonFunction } from '@wasdadeel/common';
 import {
     useEffect,

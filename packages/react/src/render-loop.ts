@@ -1,4 +1,3 @@
-"use client";
 import { createRenderLoop } from "@wasdadeel/common";
 import { useEffect } from "react";
 
