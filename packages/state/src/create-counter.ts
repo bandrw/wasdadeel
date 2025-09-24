@@ -25,6 +25,10 @@ export const createCounter = (initial?: number): CreatedCounter => {
     const state = createState<number>(INITIAL_VALUE);
     const emitter = createEventEmitter<EventMap>();
 
+    state.on('change', ({prevState, newState}) => {
+        emitter.emit('change', {prevState, newState});
+    });
+
     return {
         getState: state.getState,
         reset: () => {
