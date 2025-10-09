@@ -9,7 +9,9 @@ export type FetcherArgs = [
         headers?:
             | Record<'Content-Type', 'text/html' | 'multipart/form-data' | 'application/json' | undefined>
             | Record<string, string | undefined>;
-        method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE'
+        method?: 'GET' | 'POST' | 'PUT' | 'PATCH' | 'DELETE';
+        timeout?: number;
+        fetchImpl?: typeof fetch;
     },
 ];
 
@@ -18,6 +20,7 @@ export type Fetcher = Record<
     (url: FetcherArgs[0], options?: FetcherArgs[1]) => Promise<Response>
 > & {
     redirect: (path: FetcherArgs[0], options?: {external?: boolean}) => void;
+    buildUrl: (path: FetcherArgs[0]) => string;
     clone: () => Fetcher;
     middleware: {
         add: (middleware: FetcherMiddleware) => void;

@@ -4,6 +4,7 @@ import { Fetcher, FetcherArgs, FetchOptions } from "./types";
 
 type Options = {
     baseUrl?: string;
+    fetchImpl?: typeof fetch;
     middleware?: FetcherMiddleware[];
     timeout?: number;
     on?: {
@@ -35,14 +36,20 @@ export const createFetcher = (fetcherOptions: Options): Fetcher => {
     } = {
         middleware: [...fetcherOptions.middleware || []],
     };
-    const {baseUrl = ''} = fetcherOptions;
-    const fetchImpl = fetch;
+    const {
+        baseUrl = '',
+    } = fetcherOptions;
+
+    const buildUrl: Fetcher['buildUrl'] = (path) => {
+        return `${baseUrl}${path}`;
+    };
 
     const fetchFn = async (
         path: FetcherArgs[0],
         options: FetcherArgs[1],
     ) => {
-        const url = `${baseUrl}${path}`;
+        const url = buildUrl(path);
+        const fetchImpl = options.fetchImpl ?? fetcherOptions.fetchImpl ?? fetch;
 
         options = {...options, headers: {...options.headers}};
         if (typeof options.body === 'string') {
@@ -63,6 +70,9 @@ export const createFetcher = (fetcherOptions: Options): Fetcher => {
         context.middleware.forEach((x) => {
             args = x(args);
         });
+        if (options.timeout !== undefined) {
+            args = createTimeoutMiddleware({timeout: options.timeout})(args);
+        }
 
         fetcherOptions.on?.beforeFetch?.({args});
         const response = await fetchImpl(args[0], {...args[1], headers: buildHeaders(args[1].headers)});
@@ -97,7 +107,7 @@ export const createFetcher = (fetcherOptions: Options): Fetcher => {
     };
 
     const redirect: Fetcher['redirect'] = async (path, options = {}) => {
-        const url = `${baseUrl}${path}`;
+        const url = buildUrl(path);
 
         FetcherTools.redirect(url, options);
     };
@@ -119,6 +129,7 @@ export const createFetcher = (fetcherOptions: Options): Fetcher => {
         patch,
         delete: $delete,
         redirect,
+        buildUrl,
         clone,
         middleware,
     } as const;
