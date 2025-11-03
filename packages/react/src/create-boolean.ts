@@ -1,5 +1,5 @@
 "use client";
-import { useSyncExternalStore } from 'use-sync-external-store/shim';
+import { useSyncExternalStore } from 'react';
 import { useFactory, useRefOutput } from './hooks';
 import { NonFunction } from '@wasdadeel/common';
 import { createReactEmitter } from './emitter';

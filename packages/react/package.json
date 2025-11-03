@@ -6,7 +6,6 @@
         "hooks",
         "state-management",
         "external-state",
-        "useSyncExternalStore",
         "react-18",
         "react-19",
         "typescript",
@@ -26,7 +25,7 @@
         "directory": "packages/react"
     },
     "author": "Andrei Balashov <bandrwx@gmail.com>",
-    "version": "1.0.27",
+    "version": "1.0.28",
     "type": "module",
     "module": "./dist/index.js",
     "types": "./dist/index.d.ts",
@@ -52,17 +51,14 @@
         "prepublishOnly": "npm run build"
     },
     "peerDependencies": {
-        "@wasdadeel/common": "1.0.27",
-        "@wasdadeel/state": "1.0.27",
+        "@wasdadeel/common": "1.0.28",
+        "@wasdadeel/state": "1.0.28",
         "react": ">=18"
     },
-    "dependencies": {
-        "use-sync-external-store": "^1"
-    },
+    "dependencies": {},
     "devDependencies": {
         "@types/node": "^24",
         "@types/react": "^19",
-        "@types/use-sync-external-store": "^1.5.0",
         "typescript": "^5"
     },
     "publishConfig": {
